@@ -1,0 +1,29 @@
+package com.naveen.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.naveen.dao.EmployeeDao;
+import com.naveen.model.Employee;
+import com.naveen.service.EmployeeService;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Autowired
+	EmployeeDao employeeDao;
+
+	public List<Employee> getAllEmployees() {
+		List<Employee> employees = employeeDao.getAllEmployees();
+		return employees;
+	}
+
+	@Override
+	public void insertEmployee(Employee employee) {
+		employeeDao.insertEmployee(employee);
+		
+	}
+
+}
